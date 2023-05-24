@@ -15,7 +15,7 @@ reservatorios = {
     "QuantidadeDeCafe": 1000,
     "QuantidadeDeleite": 1000,
     "QuantidadeDechocolate": 1000,
-    "QuantidadeDeCopos": 1,
+    "QuantidadeDeCopos": 50,
     "QuantidadeDeAgua": 1000,
 }
 
