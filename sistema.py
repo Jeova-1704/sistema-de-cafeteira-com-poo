@@ -22,16 +22,18 @@ reservatorios = {
 class Cafeteira:
     def __init__(self, cafe=0, leite=0, chocolate=0, copos=0, agua=0, money=00.00) -> None: 
 
-        self.cafePo = cafe
-        self.leite = leite
-        self.chocolate = chocolate
-        self.copos = copos
-        self.agua = agua 
-        self.money = money   
-        self.display = f'RS:{self.money:.2f}'
+        self.cafePo: float = cafe
+        self.leite: float = leite
+        self.chocolate: float = chocolate
+        self.copos: float = copos
+        self.agua: float = agua 
+        self.money: float = money   
 
-
-    def exibir_display(self):
+    def exibir_display(self, mensagem):
+        if mensagem == "valor":
+            self.display = f'RS:{self.money:.2f}'
+        else:
+            self.display = mensagem
         cafe1 = f'1-Café expresso-R${precos_cafes["CAFE1"]:.2f}'
         cafe2 = f'2-Café longo-R${precos_cafes["CAFE2"]:.2f}'
         cafe3 = f'3-Café pingado-R${precos_cafes["CAFE3"]:.2f}'
@@ -54,113 +56,75 @@ class Cafeteira:
         print(f"║{desligar.center(53)}║")
         print("╚═════════════════════════════════════════════════════╝")
 
-
     def dispensadorCopos(self):
-        self.display = 'Dispensando um copo'
-        Cafeteira.exibir_display(self)
-        time.sleep(3)
-        Cafeteira.limparJanela(self)
-
+        self.exibir_display('Dispensando um copo')
+        self._timeClean(5)
 
     def aquecendoIngredientes(self):
-        self.display = "esquentando os ingredientes"
-        Cafeteira.exibir_display(self)
-        time.sleep(5) 
-        Cafeteira.limparJanela(self)
-
+        self.exibir_display("esquentando os ingredientes") 
+        self._timeClean(5)
 
     def moerCafe(self):
-        self.display = "Moendo o café"
-        Cafeteira.exibir_display(self)
-        time.sleep(5)
-        Cafeteira.limparJanela(self)
+        self.exibir_display("Moendo o café")
+        self._timeClean(5)
     
-
     def servirCafe(self):
-        self.display = "Servindo café..."
-        Cafeteira.exibir_display(self)
-        time.sleep(5)
-        Cafeteira.limparJanela(self)
-        self.display = "Café servido✓"
-        Cafeteira.exibir_display(self)
-        time.sleep(5)
-        Cafeteira.limparJanela(self)
-
+        self.exibir_display("Servindo café...")
+        self._timeClean(5)
+        self.exibir_display("Café servido✓")
+        self._timeClean(5)
 
     def devolvendoTroco(self):
-        self.display = f'Devolvendo o seu troco de R${self.money:.2f}'
+        self.exibir_display(f'Devolvendo o seu troco de R${self.money:.2f}')
+        self._timeClean(5)
         self.money = 0
     
-
     def devolverDinheiroNaoUsado(self):
-        self.display = f'Devolvendo o se dinhiero R${self.money:.2f}'
-        Cafeteira.exibir_display(self)
-        time.sleep(3)
+        self.exibir_display(f'Devolvendo o se dinhiero R${self.money:.2f}')
+        self._timeClean(5)
+        self.exibir_display('valor')
+        self._timeClean()
         self.money = 0
-    
 
     def naoTemIngredientes(self):
-        Cafeteira.limparJanela(self)
-        self.display = 'Ingrendientes em falta✕'
-        Cafeteira.exibir_display(self)
-        time.sleep(5)
-        Cafeteira.limparJanela(self)
+        self.exibir_display('Ingrendientes em falta✕')
+        self._timeClean(5)
     
-
     def encerramento(self):
-        self.display = 'Obrigado por usar nosso serviço!'
-        Cafeteira.exibir_display(self)
-        time.sleep(3)
-    
+        self.exibir_display('Obrigado por usar nosso serviço!')
+        self._timeClean(5)
 
-    def limparJanela(self):
+    def _timeClean(self, segundos=0):
+        time.sleep(segundos)
         os.system('cls')
-    
-
-    def displayMoney(self):
-        self.limparJanela()
-        self.display = f'RS:{self.money:.2f}'
-        Cafeteira.exibir_display(self)
-    
 
     def addmoney(self, valor=0):
         self.money += valor
 
-
-    def escolhaBebidas(self):
-        while True:
-            escolha = input("Escolha a sua bebida: ")
-            if escolha in '123456789990':
-                return int(escolha)
-      
+    def mostarReservatorio(self):
+        print('Café: ', self.cafePo)
+        print('Leite: ', self.leite)
+        print('Água: ', self.agua)
+        print('Chocolate: ', self.chocolate)
+        print('Copos: ', self.copos)
+        self._timeClean(10)
             
     def falta_dinheiro(self):
-        self.display = "compra inválida: valor insuficiente"
-        Cafeteira.exibir_display(self)
-        time.sleep(3)
-        Cafeteira.limparJanela(self)
-
+        self.exibir_display("compra inválida: valor insuficiente")
+        self._timeClean(5)
 
     def falta_igredientes(self):
-        Cafeteira.limparJanela(self)
-        self.display = "compra inválida: Falta ingredientes"
-        Cafeteira.exibir_display(self)
-        time.sleep(3)
-        Cafeteira.limparJanela(self)
-        self.display = "contate o gerente para reabastecer"
-        Cafeteira.exibir_display(self)
-        time.sleep(3)
-        Cafeteira.limparJanela(self)
-
+        self.exibir_display("compra inválida: Falta ingredientes")
+        self._timeClean(5)
+        self.exibir_display("contate o gerente para reabastecer")
+        self._timeClean(5)
 
     def desligando(self):
-        self.display = "Desligando..."
-        Cafeteira.exibir_display(self)
-        time.sleep(3)
-        Cafeteira.limparJanela(self)
-        self.display = " "
-        Cafeteira.exibir_display(self)
-################################################################
+        self.exibir_display("Desligando...")
+        self._timeClean(5)
+        self.exibir_display(" ")
+        self._timeClean(5)
+#######################VERIFICADO ATÉ AQUI##################################
     def verificaCafeExpresso(self):
         if self.cafePo >= 75 and self.agua >= 150:
             self.cafePo -= 75
