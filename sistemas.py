@@ -15,7 +15,7 @@ reservatorios = {
     "QuantidadeDeCafe": 1000,
     "QuantidadeDeleite": 1000,
     "QuantidadeDechocolate": 1000,
-    "QuantidadeDeCopos": 50,
+    "QuantidadeDeCopos": 1,
     "QuantidadeDeAgua": 1000,
 }
 
@@ -86,10 +86,6 @@ class Cafeteira:
         self._timeClean()
         self.money = 0
 
-    def naoTemIngredientes(self):
-        self.exibir_display('Ingrendientes em falta✕')
-        self._timeClean(5)
-    
     def encerramento(self):
         self.exibir_display('Obrigado por usar nosso serviço!')
         self._timeClean(5)
@@ -114,7 +110,7 @@ class Cafeteira:
         self._timeClean(5)
 
     def falta_igredientes(self):
-        self.exibir_display("compra inválida: Falta ingredientes")
+        self.exibir_display("compra inválida: Falta ingredientes/copo✕")
         self._timeClean(5)
         self.exibir_display("contate o gerente para reabastecer")
         self._timeClean(5)

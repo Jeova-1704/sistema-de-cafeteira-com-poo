@@ -1,4 +1,4 @@
-from sistemas import *
+from sistemas import Cafeteira, reservatorios, precos_cafes
 
 """
 Cafe = gramas 
