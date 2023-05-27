@@ -135,7 +135,7 @@ class Cafeteira:
         if self.cafePo >= 20 and self.leite >= 60 and self.agua >= 60:
             self.cafePo -= 150
             self.leite -= 30
-            self.agua -= 120
+            self.agua -= 120    
             return True
         
     def verificaCafePingado(self):

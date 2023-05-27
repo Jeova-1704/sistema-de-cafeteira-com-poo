@@ -1,4 +1,4 @@
-from sistema import *
+from sistemas import *
 
 """
 Cafe = gramas 
@@ -54,10 +54,8 @@ while True:
         tem_ingredientes_e_copos = cafeteira.verificaCafeExpresso()
         tem_ingredientes_e_copos = cafeteira.verificaCopos()
 
-
     elif escolha == 2:
         if cafeteira.money < precos_cafes["CAFE2"]:
-            #faltou o limpa janela
             cafeteira.falta_dinheiro()
             continue
         tem_ingredientes_e_copos = cafeteira.verificaCafeLongo()
@@ -67,7 +65,6 @@ while True:
         
     elif escolha == 3:
         if cafeteira.money < precos_cafes["CAFE3"]:
-            #faltou o limpa janela
             cafeteira.falta_dinheiro()
             continue
         tem_ingredientes_e_copos = cafeteira.verificaCafePingado()
@@ -77,7 +74,6 @@ while True:
 
     elif escolha == 4:
         if cafeteira.money < precos_cafes["CAFE4"]:
-            #faltou o limpa janela
             cafeteira.falta_dinheiro()
             continue
         tem_ingredientes_e_copos = cafeteira.verificaCapuchino()
@@ -87,7 +83,6 @@ while True:
 
     elif escolha == 5:
         if cafeteira.money < precos_cafes["CAFE5"]:
-            #faltou o limpa janela
             cafeteira.falta_dinheiro()
             continue
         tem_ingredientes_e_copos = cafeteira.verificaCapChoc()
@@ -97,7 +92,6 @@ while True:
 
     elif escolha == 6:
         if cafeteira.money < precos_cafes["CAFE6"]:
-            #faltou o limpa janela
             cafeteira.falta_dinheiro()
             continue
         tem_ingredientes_e_copos = cafeteira.verificahocolate()
@@ -107,7 +101,6 @@ while True:
 
     elif escolha == 7:
         if cafeteira.money < precos_cafes["CAFE7"]:
-            #faltou o limpa janela
             cafeteira.falta_dinheiro()
             continue
         tem_ingredientes_e_copos = cafeteira.verificaCafeComChocolate()
@@ -117,7 +110,6 @@ while True:
 
     elif escolha == 8:
         if cafeteira.money < precos_cafes["CAFE8"]:
-            #faltou o limpa janela
             cafeteira.falta_dinheiro()
             continue
         tem_ingredientes_e_copos = cafeteira.verificaChocolateComLeite()
