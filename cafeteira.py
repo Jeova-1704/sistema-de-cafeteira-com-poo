@@ -81,6 +81,7 @@ while True:
         if tem_ingredientes_e_copos == True:
             cafeteira.money -= precos_cafes["CAFE4"]
 
+
     elif escolha == 5:
         if cafeteira.money < precos_cafes["CAFE5"]:
             cafeteira.falta_dinheiro()
@@ -137,3 +138,4 @@ while True:
         break
 
     cafeteira.encerramento()
+    
